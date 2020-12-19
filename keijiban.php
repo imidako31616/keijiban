@@ -35,7 +35,6 @@ $password = '*********';
 $pdo = new PDO($dsn,$user,$password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
 
 
-$today = date("Y-m-d H:i:s");
 
 
 $sql = "CREATE TABLE IF NOT EXISTS keijiban"
@@ -43,7 +42,6 @@ $sql = "CREATE TABLE IF NOT EXISTS keijiban"
         ."id INT AUTO_INCREMENT PRIMARY KEY,"
         ."name char(32),"
         ."comment TEXT,"
-        .$today
         .");";
     $stmt = $pdo->query($sql);
     
