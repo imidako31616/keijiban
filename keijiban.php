@@ -29,19 +29,17 @@
 </from>
 
 <?php
-$dsn = 'mysql:dbname=*******;host=*******';
+$dsn = 'mysql:dbname=********;host=*******';
 $user = '********';
-$password = '*********';
+$password = '********';
 $pdo = new PDO($dsn,$user,$password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-
-
 
 
 $sql = "CREATE TABLE IF NOT EXISTS keijiban"
         ."("
         ."id INT AUTO_INCREMENT PRIMARY KEY,"
         ."name char(32),"
-        ."comment TEXT,"
+        ."comment TEXT"
         .");";
     $stmt = $pdo->query($sql);
     
@@ -86,7 +84,6 @@ $sql = "CREATE TABLE IF NOT EXISTS keijiban"
     
         
     //削除
-    $id = $_POST["deleteNo"];
     $sql = 'delete from keijiban where id=:id';
     
     if(empty($_POST["deleteNo"]) && empty($_POST["password_del"])){
@@ -116,7 +113,7 @@ $sql = "CREATE TABLE IF NOT EXISTS keijiban"
     foreach($results as $row){
     echo $row['id'].',';
     echo $row['name'].',';
-    echo $row['comment'].'<br>';
+    echo $row['comment'].'<br/>';
     echo "<hr>";
     }   
 ?>
